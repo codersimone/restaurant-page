@@ -1,3 +1,4 @@
+import './styles/reset/reset.css';
 import './styles/styles.css';
 import loadHome from './modules/pages/home.js';
 
