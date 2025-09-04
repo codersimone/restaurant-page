@@ -1,5 +1,3 @@
-import loadBookingForm from './booking.js';
-
 export default function loadHome() {
     const content = document.querySelector('#content');
     content.textContent = '';
@@ -12,15 +10,15 @@ export default function loadHome() {
     info.classList.add('homeInfo');
     info.textContent = 'Is the head of everything';
 
-    const button = document.createElement('button');
-    button.classList.add('homeButton');
-    button.textContent = 'Reserve';
+    const callBtn = document.createElement('button');
+    callBtn.classList.add('homeCallButton');
+    callBtn.textContent = 'Call to book a table';
 
-    button.addEventListener('click', () => {
-        loadBookingForm();
+    callBtn.addEventListener('click', () => {
+        window.location.href = '+74959999999';
     });
 
     content.appendChild(heading);
     content.appendChild(info);
-    content.appendChild(button);
+    content.appendChild(callBtn);
 }
