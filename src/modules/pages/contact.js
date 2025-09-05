@@ -4,7 +4,7 @@ export default function loadContact() {
 
     const heading = document.createElement('h1');
     heading.classList.add('contactHeading');
-    heading.textContent = '';
+    heading.textContent = 'You are always welcome';
 
     const phone = document.createElement('p');
     phone.classList.add('contactPhone');
