@@ -6,8 +6,9 @@ import loadContact from './modules/pages/contact.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     loadHome();
+    document.querySelector('#homeBtn').addEventListener('click', loadHome);
+    document.querySelector('#menuBtn').addEventListener('click', loadMenu);
+    document
+        .querySelector('#contactBtn')
+        .addEventListener('click', loadContact);
 });
-
-document.querySelector('#homeBtn').addEventListener('click', loadHome);
-document.querySelector('#menuBtn').addEventListener('click', loadMenu);
-document.querySelector('#contactBtn').addEventListener('click', loadContact);
