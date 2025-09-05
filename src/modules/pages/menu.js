@@ -7,6 +7,7 @@ export default function loadMenu() {
     heading.textContent = 'Our menu';
 
     const list = document.createElement('ul');
+    list.classList.add('menuList');
     const items = ['Appetizer', 'Salad', 'Main dish', 'Side dish', 'Dessert'];
 
     items.forEach((item) => {

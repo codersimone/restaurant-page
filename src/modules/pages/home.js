@@ -8,17 +8,13 @@ export default function loadHome() {
 
     const info = document.createElement('p');
     info.classList.add('homeInfo');
-    info.textContent = 'Is the head of everything';
+    info.textContent = 'People cook for people with love';
 
-    const callBtn = document.createElement('button');
-    callBtn.classList.add('homeCallButton');
-    callBtn.textContent = 'Call to book a table';
-
-    callBtn.addEventListener('click', () => {
-        window.location.href = '+74959999999';
-    });
+    const subInfo = document.createElement('p');
+    subInfo.classList.add('homeSubInfo');
+    subInfo.textContent = 'Siberia, 1980';
 
     content.appendChild(heading);
     content.appendChild(info);
-    content.appendChild(callBtn);
+    content.appendChild(subInfo);
 }
