@@ -12,7 +12,7 @@ export default function loadHome() {
 
     const subInfo = document.createElement('p');
     subInfo.classList.add('homeSubInfo');
-    subInfo.textContent = 'Siberia, 1980';
+    subInfo.textContent = 'Mon-Fri 12 am - 10 pm';
 
     content.appendChild(heading);
     content.appendChild(info);
