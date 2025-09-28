@@ -9,31 +9,78 @@ export default function loadMenu() {
     const list = document.createElement('ul');
     list.classList.add('menuList');
 
-    const items = ['Appetizer', 'Salad', 'Main dish', 'Side dish', 'Dessert'];
+    const sections = {
+        Appetizer: [
+            { name: 'Home-salted trout', price: '9$' },
+            { name: 'Smoked bacon', price: '7$' },
+            { name: 'Onion and egg patty', price: '3$' },
+        ],
+        Salad: [
+            { name: 'Seasonal vegetables', price: '6$' },
+            { name: 'Vinaigrette', price: '8$' },
+            { name: 'Mimosa', price: '10$' },
+        ],
+        Main: [
+            { name: 'Siberian dumplings', price: '16$' },
+            { name: `Boar's ribs`, price: '20$' },
+            { name: 'Hot smoked sterlet', price: '22$' },
+        ],
+        Dessert: [
+            { name: 'Honey cake', price: '10$' },
+            { name: 'Cranberry sorbet', price: '7$' },
+            { name: 'Cedar homemade ice-cream', price: '17$' },
+        ],
+    };
 
-    items.forEach((item) => {
-        const itemsList = document.createElement('li');
-        itemsList.classList.add('menuDisabledItem');
-        itemsList.textContent = item;
+    Object.entries(sections).forEach(([section, dishes], index) => {
+        const sectionItem = document.createElement('li');
+        sectionItem.classList.add('sectionItem');
 
-        const message = document.createElement('span');
-        message.classList.add('menuPlug');
-        message.textContent = ` - this section will be ready soon`;
+        const headerBtn = document.createElement('button');
+        headerBtn.type = 'button';
+        headerBtn.classList.add('headerBtn');
+        headerBtn.setAttribute('aria-expanded', 'false');
+        headerBtn.setAttribute('aria-controls', `section-${index}`);
 
-        itemsList.appendChild(message);
+        const menuArrow = document.createElement('span');
+        menuArrow.classList.add('menuArrow');
 
-        itemsList.addEventListener('click', (e) => {
-            e.preventDefault();
+        const menuTitle = document.createElement('span');
+        menuTitle.classList.add('menuTitle');
+        menuTitle.textContent = section;
 
-            message.classList.add('show');
-            setTimeout(() => {
-                message.classList.remove('show');
-            }, 2000);
+        headerBtn.appendChild(menuArrow);
+        headerBtn.appendChild(menuTitle);
+
+        const dishesList = document.createElement('ul');
+        dishesList.classList.add('dishesList');
+        dishesList.id = `section-${index}`;
+        dishesList.setAttribute('aria-hidden', 'true');
+
+        dishes.forEach((dish) => {
+            const dishItem = document.createElement('li');
+            dishItem.classList.add('dishItem');
+
+            const dishName = document.createElement('span');
+            dishName.classList.add('dishName');
+            dishName.textContent = dish.name;
+
+            const dishPrice = document.createElement('span');
+            dishPrice.classList.add('dishPrice');
+            dishPrice.textContent = dish.price;
+
+            dishItem.appendChild(dishName);
+            dishItem.appendChild(dishPrice);
+            dishesList.appendChild(dishItem);
         });
 
-        list.appendChild(itemsList);
+        sectionItem.appendChild(headerBtn);
+        sectionItem.appendChild(dishesList);
+        list.appendChild(sectionItem);
     });
 
     content.appendChild(heading);
     content.appendChild(list);
+
+    return list;
 }
